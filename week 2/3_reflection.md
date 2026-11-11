@@ -116,3 +116,9 @@ The 1250 block does the same thing. Note that both rules are hard-coded to a spe
 m = clean["price_raw"].isna() finds the row that was already missing in the source. I use price_raw here, not price, because price now also contains the NaNs I created in step 4 and I don’t want those mislabelled as “missing in source”.
 
 
+========================================================
+REFLECTION:
+
+ive flagged the missing price as our sample side is aready limited and the price may be significant enough to influence the mean price. Furthermore, I chose to correct 1,250 by converting it into float to ensure it is counted in the mean and the overal statistical analysis of the change in prices. Similarly since row 97 was the same as a previous row, across all columns, i chose to exclude it. Additionally i corrected the data types of prices and dates to ensure valid findings are concluded. Through AI, there were quite a few changes in the structure; columns went from 6 to 8, with two new ones: price_raw (the original price text) and flag (why a row was touched). Missing prices also went from 1 to 3. This is the number most likely to confuse a marker, because there were 2 missing values. The 3 are the original gap, the 9999 and the 1250.
+Item counts went from uneven (Oil B 25, Staple A 23) to 24 each.
+Max price went from 9999 to 350, and the mean price now reflects real prices. The raw column couldn’t be averaged at all, since it was text.
